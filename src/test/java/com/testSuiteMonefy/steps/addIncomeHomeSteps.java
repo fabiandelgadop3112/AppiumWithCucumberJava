@@ -8,7 +8,8 @@ public class addIncomeHomeSteps {
 
 	public void validateHome() {
 		System.out.print("SelectValidateSteps Home works OK \r\n");
-		AddIncomePageObject.open();
+		AddIncomePageObject.openAppium();
+		AddIncomePageObject.validateHome();
 	}
 
 	public void selectAddIncome() {

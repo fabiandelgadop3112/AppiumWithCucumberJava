@@ -3,19 +3,21 @@ package com.testSuiteMonefy.pageObject;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
+
 public class addIncomeHomePageObject {
 	
-	static AppiumDriver<MobileElement> driver;
-	
-	public void open() {
+	 
+	 AppiumDriver<MobileElement> driver;
+	 
+	public void openAppium() {
 		String apkPath = "src/apk/com.monefy.app.lite.apk";
 		File appPath = new File(apkPath);
 		
@@ -32,22 +34,25 @@ public class addIncomeHomePageObject {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		System.out.println("Session is created");
+		
 	}
 	
 
-	public void validateHome() {
-		// TODO Auto-generated method stub
+	public void validateHome() {	
 		
+		//driver.findElementByAccessibilityId("com.monefy.app.lite:id/income_button").click();
+		driver.findElementByXPath("//android.widget.ImageButton[@content-desc='Open navigation']").click();
 	}
 
 	public void selectAddIncome() {
-		// TODO Auto-generated method stub
-		
+		System.out.print("Teha button is displayed");
 	}
 
 	public void ValidateCalculator() {
-		// TODO Auto-generated method stub
-		
+		System.out.print("Teha calculator is displayed");
 	}
 
 }

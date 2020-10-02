@@ -30,7 +30,10 @@ public class addIncomeHomePageObject {
 		caps.setCapability(MobileCapabilityType.DEVICE_NAME, "moto g(8) plus");
 		caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
+		caps.setCapability(MobileCapabilityType.NO_RESET,"true");
+		caps.setCapability(MobileCapabilityType.FULL_RESET, "false");
 		caps.setCapability(MobileCapabilityType.APP, appPath.getAbsolutePath());
+
 		
 		try {
 			driver = new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
@@ -56,6 +59,31 @@ public class addIncomeHomePageObject {
 		inicialIncome = inicialIncome.replaceAll("[^\\d.]", "");
 
 		inicialIncomeValue = Double.parseDouble(inicialIncome);
+		
+		String initialValue = driver.findElementByXPath("//androidx.viewpager.widget.ViewPager/android.widget.LinearLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.TextView[1]").getText();
+		
+		int count = 1;
+		while (count<12) {
+		for (int i = 1; i <= 12; i++) {
+			
+			if (initialValue.equals(driver.findElementByXPath("//androidx.viewpager.widget.ViewPager/android.widget.LinearLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.TextView["+i+"]").getText())) {
+				driver.findElementByXPath("//android.widget.ImageView["+i+"]").click();
+				driver.findElementById("com.monefy.app.lite:id/buttonKeyboard1").click();
+				for (int j = 0; j < 4; ++j) {
+						
+						driver.findElementById("com.monefy.app.lite:id/buttonKeyboard0").click();
+					}
+				driver.findElementById("com.monefy.app.lite:id/keyboard_action_button").click();
+				break;
+			}
+			else
+			{
+				count++;
+			
+			}
+		}
+		}
+		
 	}
 
 	public void selectAddIncome() {

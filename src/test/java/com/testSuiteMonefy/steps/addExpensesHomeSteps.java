@@ -8,6 +8,7 @@ public class addExpensesHomeSteps {
 	
 	public void validateHome() {
 		
+		AddExpensesHomePageObject.openAppium();
 		AddExpensesHomePageObject.validateHome();
 		
 	}

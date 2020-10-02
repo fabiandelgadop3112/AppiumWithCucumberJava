@@ -35,3 +35,10 @@ Feature: Add registers from home
     And I enter a value in the expenses calculator
     And I Choose a category of expense
     Then I view the amount reflected on the label to expenses
+    
+   @Addinividualexpenses
+   Scenario: Add individial expenses from home.
+   Given Staying in home screen for add individual expenses
+   When I add expenses individualy
+   Then All expenses have an associated ammount
+   

@@ -60,30 +60,6 @@ public class addIncomeHomePageObject {
 
 		inicialIncomeValue = Double.parseDouble(inicialIncome);
 		
-		String initialValue = driver.findElementByXPath("//androidx.viewpager.widget.ViewPager/android.widget.LinearLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.TextView[1]").getText();
-		
-		int count = 1;
-		while (count<12) {
-		for (int i = 1; i <= 12; i++) {
-			
-			if (initialValue.equals(driver.findElementByXPath("//androidx.viewpager.widget.ViewPager/android.widget.LinearLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.TextView["+i+"]").getText())) {
-				driver.findElementByXPath("//android.widget.ImageView["+i+"]").click();
-				driver.findElementById("com.monefy.app.lite:id/buttonKeyboard1").click();
-				for (int j = 0; j < 4; ++j) {
-						
-						driver.findElementById("com.monefy.app.lite:id/buttonKeyboard0").click();
-					}
-				driver.findElementById("com.monefy.app.lite:id/keyboard_action_button").click();
-				break;
-			}
-			else
-			{
-				count++;
-			
-			}
-		}
-		}
-		
 	}
 
 	public void selectAddIncome() {

@@ -9,9 +9,8 @@ import io.appium.java_client.MobileElement;
 public class addIndividualExpensesPageObject {
 	
 	AppiumDriver<MobileElement> driver;
-	
-	
 	AppiumResources appiumResources = new AppiumResources();
+	String initialValue;
 	
 	public void openAppium() {
 		
@@ -36,7 +35,7 @@ public class addIndividualExpensesPageObject {
 
 	public void addAllExpenses() {
 		
-		String initialValue = driver.findElementByXPath("//androidx.viewpager.widget.ViewPager/android.widget.LinearLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.TextView[1]").getText();
+		initialValue = driver.findElementByXPath("//androidx.viewpager.widget.ViewPager/android.widget.LinearLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.TextView[1]").getText();
 		
 		int count = 1;
 		while (count<12) {
@@ -61,13 +60,8 @@ public class addIndividualExpensesPageObject {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	}
-
-	public void validateAllIndividualExpenses() {
-	
-		System.out.print("ValidateAllIndividualExpenses");
 		driver.quit();
+		
 	}
 
 }

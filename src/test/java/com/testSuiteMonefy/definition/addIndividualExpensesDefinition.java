@@ -6,7 +6,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class addIndividualExpenses {
+public class addIndividualExpensesDefinition {
 	
 	addIndividualExpensesSteps AddIndividualExpensesSteps = new addIndividualExpensesSteps();
 
@@ -15,14 +15,9 @@ public class addIndividualExpenses {
 		AddIndividualExpensesSteps.validateHome();	   
 	}
 
-	@When("^I add expenses individualy$")
-	public void i_add_expenses_individualy(){	    
+	@Then("^I could add expenses individualy$")
+	public void i_could_add_expenses_individualy(){	    
 		AddIndividualExpensesSteps.addAllExpenses();	    
-	}
-
-	@Then("^All expenses have an associated ammount$")
-	public void all_expenses_have_an_associated_ammount(){	   
-		AddIndividualExpensesSteps.validateAllIndividualExpenses();	    
 	}
 	
 }

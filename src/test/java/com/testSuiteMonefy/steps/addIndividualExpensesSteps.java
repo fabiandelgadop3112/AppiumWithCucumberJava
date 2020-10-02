@@ -19,9 +19,5 @@ public class addIndividualExpensesSteps {
 		
 	}
 
-	public void validateAllIndividualExpenses() {
-		
-		AddIndividualExpensesPageObject.validateAllIndividualExpenses();
-	}
 
 }

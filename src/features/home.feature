@@ -39,6 +39,6 @@ Feature: Add registers from home
    @Addinividualexpenses
    Scenario: Add individial expenses from home.
    Given Staying in home screen for add individual expenses
-   When I add expenses individualy
-   Then All expenses have an associated ammount
+   Then I could add expenses individualy
+
    

@@ -72,7 +72,7 @@ public class addIncomeHomePageObject {
 		
 		String enterIncome = driver.findElementById("com.monefy.app.lite:id/amount_text").getText();
 		incomeEnterValue = Double.parseDouble(enterIncome);
-		
+
 	}
 	
 	public void chooseCategory() {
@@ -83,12 +83,14 @@ public class addIncomeHomePageObject {
 	public void validateIncomesLabel() {
 		
 		String finalIncome;
+		
+		Double expectedIncomeValue = inicialIncomeValue + incomeEnterValue;
+		
 		finalIncome = driver.findElementById("com.monefy.app.lite:id/income_amount_text").getText();
 		finalIncome = finalIncome.replaceAll("[^\\d.]", "");
 		finalIncomeValue = Double.parseDouble(finalIncome);
-		//finalIncomeValue = (Double) 5205.256;
 		
-		Assert.assertEquals("The income doesn't match \r\n Test have been failed",finalIncomeValue, incomeEnterValue);
+		Assert.assertEquals("The income doesn't match \r\n Test have been failed",finalIncomeValue, expectedIncomeValue);
 		
 		driver.quit();
 	}

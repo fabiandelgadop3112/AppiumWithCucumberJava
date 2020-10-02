@@ -17,9 +17,9 @@ public class addIncomeHomePageObject {
 	
 	
 	AppiumDriver<MobileElement> driver;
-	Float inicialIncomeValue;
-	String incomeEnterValue;
-	String finalIncomeValue;
+	Double inicialIncomeValue;
+	Double incomeEnterValue;
+	Double finalIncomeValue;
 	
 	public void openAppium() {
 		String apkPath = "src/apk/com.monefy.app.lite.apk";
@@ -55,12 +55,12 @@ public class addIncomeHomePageObject {
 		inicialIncome = driver.findElementById("com.monefy.app.lite:id/income_amount_text").getText();
 		inicialIncome = inicialIncome.replaceAll("[^\\d.]", "");
 
-		inicialIncomeValue = Float.parseFloat(inicialIncome);
+		inicialIncomeValue = Double.parseDouble(inicialIncome);
 	}
 
 	public void selectAddIncome() {
 		driver.findElementById("com.monefy.app.lite:id/income_button_title").click();
-		System.out.print("Select Add Income page object OK \r\n");
+
 	}
 
 	public void enterIncomeValue() {
@@ -70,9 +70,8 @@ public class addIncomeHomePageObject {
 			driver.findElementById("com.monefy.app.lite:id/buttonKeyboard0").click();
 			}
 		
-		incomeEnterValue = driver.findElementById("com.monefy.app.lite:id/amount_text").getText();
-		System.out.print(incomeEnterValue);
-		System.out.print("Select enter Income page object Step OK \r\n");
+		String enterIncome = driver.findElementById("com.monefy.app.lite:id/amount_text").getText();
+		incomeEnterValue = Double.parseDouble(enterIncome);
 		
 	}
 	
@@ -82,7 +81,15 @@ public class addIncomeHomePageObject {
 	}
 	
 	public void validateIncomesLabel() {
-		driver.findElementById("com.monefy.app.lite:id/income_amount_text").getText();
-		System.out.print("Select validate income label page object ok \r\n \r\n");
+		
+		String finalIncome;
+		finalIncome = driver.findElementById("com.monefy.app.lite:id/income_amount_text").getText();
+		finalIncome = finalIncome.replaceAll("[^\\d.]", "");
+		finalIncomeValue = Double.parseDouble(finalIncome);
+		//finalIncomeValue = (Double) 5205.256;
+		
+		Assert.assertEquals("The income doesn't match \r\n Test have been failed",finalIncomeValue, incomeEnterValue);
+		
+		driver.quit();
 	}
 }

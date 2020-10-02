@@ -12,29 +12,29 @@ public class addIncomeHomeDefinition {
 	
 	@Given("^Staying in home screen$")
 	public void staying_in_home_screen(){
-		System.out.print("Given Definition works \r\n");
+		AddIncomeHomeSteps.validateHome();
 	}
 
 	@When("^I push button plus$")
 	public void i_push_button_plus() {
-		 System.out.print("When  Definition works \r\n");
+		 AddIncomeHomeSteps.selectAddIncome();
 	}
 	
 	@And("^I enter a value in the calculator$")
 	public void i_enter_a_value_in_the_calculator()
 	{	
-		System.out.print("Frist And Definition works \r\n");
+		AddIncomeHomeSteps.enterIncomeValue();
 	}
 	
 	@And("^I Choose a category$")
 	public void i_choose_a_category()
 	{	
-		System.out.print("Second And Definition works \r\n");
+		AddIncomeHomeSteps.chooseCategory();
 	}
 
 	@Then("^I View the amount reflected on the label to incomes$")
 	public void i_view_the_amount_reflected_on_the_label_to_incomes() {
-		System.out.print("Then Definition works \r\n \r\n");
+		AddIncomeHomeSteps.validateIncomesLabel();
 	}
 
 }

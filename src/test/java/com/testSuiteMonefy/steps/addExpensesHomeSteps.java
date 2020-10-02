@@ -1,34 +1,40 @@
 package com.testSuiteMonefy.steps;
 
-public class addExpensesHomeSteps {
+import com.testSuiteMonefy.pageObject.addExpensesHomePageObject;
 
+public class addExpensesHomeSteps {
+	
+	addExpensesHomePageObject AddExpensesHomePageObject = new addExpensesHomePageObject();
+	
 	public void validateHome() {
 		
-		System.out.print("Hello World\r\n");
+		AddExpensesHomePageObject.validateHome();
 		
 	}
 
 	public void selectAddExpense() {
 		
-		System.out.print("Minus pushed\r\n");
-		
+		AddExpensesHomePageObject.selectAddExpense();
+				
 	}
 
 	public void enterExpenseValue() {
 		
-		System.out.print("Calculator Init\r\n");
+		AddExpensesHomePageObject.enterExpenseValue();
 		
 	}
 
 	public void chooseCategory() {
 		
-		System.out.print("Catgegory Selectt\r\n");
+		AddExpensesHomePageObject.chooseCategory();
+		
 		
 	}
 
 	public void validateExpensesLabel() {
 		
-		System.out.print("Catgegory label expenses\r\n");
+		AddExpensesHomePageObject.validateExpensesLabel();
+		
 		
 	}
 

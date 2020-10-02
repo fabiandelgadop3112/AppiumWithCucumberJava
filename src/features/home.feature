@@ -24,7 +24,10 @@ Feature: Add registers from home
   Scenario: Add incomes
   	Given Staying in home screen
     When 	I push button plus
-    Then 	I see the calculator
+    And 	I enter a value in the calculator
+    And   I Choose a category
+    Then  I View the amount reflected on the label to incomes
+ 
 
 
  

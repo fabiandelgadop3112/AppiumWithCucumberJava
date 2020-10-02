@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -14,9 +15,12 @@ import io.appium.java_client.remote.MobileCapabilityType;
 
 public class addIncomeHomePageObject {
 	
-	 
-	 AppiumDriver<MobileElement> driver;
-	 
+	
+	AppiumDriver<MobileElement> driver;
+	Float inicialIncomeValue;
+	String incomeEnterValue;
+	String finalIncomeValue;
+	
 	public void openAppium() {
 		String apkPath = "src/apk/com.monefy.app.lite.apk";
 		File appPath = new File(apkPath);
@@ -43,16 +47,42 @@ public class addIncomeHomePageObject {
 
 	public void validateHome() {	
 		
-		//driver.findElementByAccessibilityId("com.monefy.app.lite:id/income_button").click();
-		driver.findElementByXPath("//android.widget.ImageButton[@content-desc='Open navigation']").click();
+		
+		String inicialIncome;
+		
+		Assert.assertTrue(driver.findElementById("com.monefy.app.lite:id/income_amount_text").isDisplayed());
+
+		inicialIncome = driver.findElementById("com.monefy.app.lite:id/income_amount_text").getText();
+		inicialIncome = inicialIncome.replaceAll("[^\\d.]", "");
+
+		inicialIncomeValue = Float.parseFloat(inicialIncome);
 	}
 
 	public void selectAddIncome() {
-		System.out.print("Teha button is displayed");
+		driver.findElementById("com.monefy.app.lite:id/income_button_title").click();
+		System.out.print("Select Add Income page object OK \r\n");
 	}
 
-	public void ValidateCalculator() {
-		System.out.print("Teha calculator is displayed");
+	public void enterIncomeValue() {
+		
+		driver.findElementById("com.monefy.app.lite:id/buttonKeyboard1").click();
+		for (int i = 0; i < 4; ++i) {
+			driver.findElementById("com.monefy.app.lite:id/buttonKeyboard0").click();
+			}
+		
+		incomeEnterValue = driver.findElementById("com.monefy.app.lite:id/amount_text").getText();
+		System.out.print(incomeEnterValue);
+		System.out.print("Select enter Income page object Step OK \r\n");
+		
 	}
-
+	
+	public void chooseCategory() {
+		driver.findElementById("com.monefy.app.lite:id/keyboard_action_button").click();
+		driver.findElementById("com.monefy.app.lite:id/imageView").click();
+	}
+	
+	public void validateIncomesLabel() {
+		driver.findElementById("com.monefy.app.lite:id/income_amount_text").getText();
+		System.out.print("Select validate income label page object ok \r\n \r\n");
+	}
 }

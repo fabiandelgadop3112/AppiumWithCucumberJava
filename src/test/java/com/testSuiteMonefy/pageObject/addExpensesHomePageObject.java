@@ -8,6 +8,8 @@ import java.util.concurrent.TimeUnit;
 import org.junit.Assert;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import com.testSuiteMonefy.AppiumResources;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -19,28 +21,12 @@ public class addExpensesHomePageObject {
 	   Double initialExpensesValues;
 	   Double expensesEnterValue;
 	   Double finalExpensesValue;
-		   
+	
+	   AppiumResources appiumResources = new AppiumResources();
+	   
 	public void openAppium() {
 		
-		String apkPath = "src/apk/com.monefy.app.lite.apk";
-		File appPath = new File(apkPath);
-		
-		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setCapability(MobileCapabilityType.UDID, "ZY2278CHMJ");
-		caps.setCapability(MobileCapabilityType.DEVICE_NAME, "moto g(8) plus");
-		caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
-		caps.setCapability(MobileCapabilityType.APP, appPath.getAbsolutePath());
-		
-		try {
-			driver = new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		System.out.println("Session is created");
+		driver = appiumResources.connectionAppium();
 			
 	}
 
@@ -57,7 +43,14 @@ public class addExpensesHomePageObject {
 
 	public void selectAddExpense() {
 		
-		driver.findElementById("com.monefy.app.lite:id/expense_button_title").click();
+		try {
+			driver.findElementById("com.monefy.app.lite:id/expense_button").click();
+			}
+			catch(Exception e) {
+				driver.findElementById("com.monefy.app.lite:id/expense_button_title").click();
+			}
+
+		
 		
 	}
 
@@ -92,7 +85,7 @@ public class addExpensesHomePageObject {
 		finalExpensesValue = Double.parseDouble(finalExpense);
 		
 		Assert.assertEquals("The Expense doesn't match \\r\\n Test have been failed", finalExpensesValue, expectedFinalExpense);
-		
+		driver.quit();
 	}
 
 

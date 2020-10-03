@@ -1,19 +1,10 @@
 package com.testSuiteMonefy.pageObject;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
-import org.openqa.selenium.remote.DesiredCapabilities;
-
 import com.testSuiteMonefy.AppiumResources;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
 
 public class addExpensesHomePageObject {
 	
@@ -26,7 +17,9 @@ public class addExpensesHomePageObject {
 	   
 	public void openAppium() {
 		
+		appiumResources.startServer();
 		driver = appiumResources.connectionAppium();
+		System.out.println("**********SCENARIO: Addexpenses HAS BEEN STARTED**********");
 			
 	}
 
@@ -89,6 +82,7 @@ public class addExpensesHomePageObject {
 		Assert.assertEquals("The Expense doesn't match \\r\\n Test have been failed", finalExpensesValue, expectedFinalExpense);
 		System.out.println("Expenses has been validated SUCCESFULLY");
 		driver.quit();
+		appiumResources.stopServer();
 	}
 
 

@@ -13,13 +13,41 @@ import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
+import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import io.appium.java_client.touch.offset.PointOption;
 
 public class AppiumResources {
 
 	AppiumDriver<MobileElement> driver;
+	AppiumDriverLocalService service;
+	
+public void startServer() {
+	    //Set Capabilities
+		DesiredCapabilities cap = new DesiredCapabilities();
+	    cap.setCapability("noReset", "false");
+
+	    //Build the Appium service
+	    AppiumServiceBuilder builder = new AppiumServiceBuilder();
+	    builder.withIPAddress("0.0.0.0");
+	    builder.usingPort(4723);
+	    builder.withCapabilities(cap);
+	    builder.withArgument(GeneralServerFlag.SESSION_OVERRIDE);
+	    builder.withArgument(GeneralServerFlag.LOG_LEVEL,"error");
+
+	    //Start the server with the builder
+	    service = AppiumDriverLocalService.buildService(builder);
+	    service.start();
+	    System.out.println("Appium server has been runned");
+	} 
+
+	public void stopServer() {
+		service.stop();
+		System.out.println("Appium server has been stopped");
+	}
 		
-public AppiumDriver<MobileElement> connectionAppium() {
+	public AppiumDriver<MobileElement> connectionAppium() {
 		
 		String apkPath = "src/apk/com.monefy.app.lite.apk";
 		File appPath = new File(apkPath);

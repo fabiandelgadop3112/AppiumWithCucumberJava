@@ -9,8 +9,7 @@ import io.appium.java_client.MobileElement;
 
 public class addIncomeHomePageObject {
 
-	public static final String ANSI_RED = "\u001B[31m";
-	public static final String ANSI_RESET = "\u001B[0m";
+
 	AppiumDriver<MobileElement> driver;
 	Double inicialIncomeValue;
 	Double incomeEnterValue;
@@ -20,9 +19,9 @@ public class addIncomeHomePageObject {
 	
 	public void openAppium() {
 		
+		appiumResources.startServer();
 		driver = appiumResources.connectionAppium();
-		System.out.println("**********SCENARIO: Add incomes HAS BEEN STARTED**********");
-		System.out.println(ANSI_RED + "Texto de color rojo" + ANSI_RESET);
+		System.out.println("**********SCENARIO: Addincomes HAS BEEN STARTED**********");
 	}
 	
 
@@ -82,6 +81,8 @@ public class addIncomeHomePageObject {
 		
 		Assert.assertEquals("The income doesn't match \r\n Test have been failed",finalIncomeValue, expectedIncomeValue);
 		System.out.println("Income value has been validated SUCCESFULLY");
+		
 		driver.quit();
+		appiumResources.stopServer();
 	}
 }

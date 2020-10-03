@@ -14,7 +14,9 @@ public class addIndividualExpensesPageObject {
 	
 	public void openAppium() {
 		
+		appiumResources.startServer();
 		driver = appiumResources.connectionAppium();
+		System.out.println("**********SCENARIO: Addinividualexpenses HAS BEEN STARTED**********");
 	}
 
 	public void validateHome() {
@@ -64,8 +66,9 @@ public class addIndividualExpensesPageObject {
 		}
 
 		System.out.println("All individual expenses has been created SUCCESFULLY");
-		driver.quit();
 		
+		driver.quit();
+		appiumResources.stopServer();
 	}
 
 }

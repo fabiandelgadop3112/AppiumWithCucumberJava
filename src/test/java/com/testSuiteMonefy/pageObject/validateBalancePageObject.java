@@ -13,8 +13,19 @@ public class validateBalancePageObject {
 	
 	AppiumResources appiumResources = new AppiumResources();
 	
-	public void validateHome() {
+	
+	public void openAppium() {
+	
+		appiumResources.startServer();
 		driver = appiumResources.connectionAppium();
+		System.out.println("**********SCENARIO: Balancevalidation HAS BEEN STARTED**********");
+		
+	}
+	
+	public void validateHome() {
+		
+		
+		
 		Assert.assertTrue(driver.findElementById("com.monefy.app.lite:id/balance_container").isDisplayed());
 		System.out.println("HomePage has been validated");
 	}
@@ -81,6 +92,7 @@ public class validateBalancePageObject {
 		Assert.assertEquals("The balance value doesn't match \r\n Test have been failed",expectedBalance, valueBalance);
 		System.out.println("Balance has been validated SUCCESFULLY");
 		driver.quit();
+		appiumResources.stopServer();
 	}
 
 }

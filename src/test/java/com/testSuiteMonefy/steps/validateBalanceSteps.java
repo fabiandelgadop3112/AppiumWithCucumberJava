@@ -7,6 +7,8 @@ public class validateBalanceSteps {
 	validateBalancePageObject ValidateBalancePageObject = new validateBalancePageObject();
 	
 	public void validateHome() {
+		
+		ValidateBalancePageObject.openAppium();
 		ValidateBalancePageObject.validateHome();
 	}
 

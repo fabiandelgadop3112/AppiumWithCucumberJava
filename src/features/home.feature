@@ -38,7 +38,14 @@ Feature: Add registers from home
     
    @Addinividualexpenses
    Scenario: Add individial expenses from home.
-   Given Staying in home screen for add individual expenses
-   Then I could add expenses individualy
+   	Given Staying in home screen for add individual expenses
+   	Then I could add expenses individualy
+   
+   @Balancevalidation
+   	Scenario: Validate Balance about an income and an expense
+   	Given Staying in home screen to validate balance
+   	When I add an income
+   	And I add an expense
+   	Then The Balance have to print the difference between both records
 
    

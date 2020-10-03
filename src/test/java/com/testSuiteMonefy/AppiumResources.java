@@ -4,9 +4,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.PerformsTouchActions;
@@ -24,6 +22,8 @@ public class AppiumResources {
 	AppiumDriverLocalService service;
 	
 public void startServer() {
+		
+		PropertyLoader loadproperty = new PropertyLoader();
 	    //Set Capabilities
 		DesiredCapabilities cap = new DesiredCapabilities();
 	    cap.setCapability("noReset", "false");
@@ -53,10 +53,10 @@ public void startServer() {
 		File appPath = new File(apkPath);
 		
 		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setCapability(MobileCapabilityType.UDID, "ZY2278CHMJ");
-		caps.setCapability(MobileCapabilityType.DEVICE_NAME, "moto g(8) plus");
-		caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
+		caps.setCapability(MobileCapabilityType.UDID, System.getProperty("udid"));
+		caps.setCapability(MobileCapabilityType.DEVICE_NAME, System.getProperty("devicename"));
+		caps.setCapability(MobileCapabilityType.PLATFORM_NAME, System.getProperty("platform"));
+		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, System.getProperty("version"));
 		caps.setCapability(MobileCapabilityType.NO_RESET,"true");
 		caps.setCapability(MobileCapabilityType.FULL_RESET, "false");
 		caps.setCapability(MobileCapabilityType.APP, appPath.getAbsolutePath());

@@ -16,7 +16,7 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
+@Alltestcases
 Feature: Add registers from home
   As I user i want to add expenses or incomes from home
 

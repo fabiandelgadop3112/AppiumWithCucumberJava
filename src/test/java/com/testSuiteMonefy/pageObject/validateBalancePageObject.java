@@ -16,7 +16,7 @@ public class validateBalancePageObject {
 	public void validateHome() {
 		driver = appiumResources.connectionAppium();
 		Assert.assertTrue(driver.findElementById("com.monefy.app.lite:id/balance_container").isDisplayed());
-		System.out.print("HomePage has been validated \r\n");
+		System.out.println("HomePage has been validated");
 	}
 
 	public void addIncome() {
@@ -36,7 +36,7 @@ public class validateBalancePageObject {
 			}
 		driver.findElementById("com.monefy.app.lite:id/keyboard_action_button").click();
 		driver.findElementById("com.monefy.app.lite:id/imageView").click();
-		System.out.print("Income has been added \r\n");
+		System.out.println("Income has been added");
 	} 
 
 	public void addExpense() {
@@ -53,7 +53,7 @@ public class validateBalancePageObject {
 			}
 		driver.findElementById("com.monefy.app.lite:id/keyboard_action_button").click();
 		driver.findElementById("com.monefy.app.lite:id/imageView").click();
-		System.out.print("Expense has been added \r\n");
+		System.out.println("Expense has been added");
 	}
 
 	public void validateBalance() {
@@ -79,7 +79,7 @@ public class validateBalancePageObject {
 	
 		Double expectedBalance = valueIncomes - valueExpenses;
 		Assert.assertEquals("The balance value doesn't match \r\n Test have been failed",expectedBalance, valueBalance);
-		System.out.print("Balance has been validated SUCCESFULLY \r\n");
+		System.out.println("Balance has been validated SUCCESFULLY");
 		driver.quit();
 	}
 

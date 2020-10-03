@@ -8,8 +8,9 @@ import io.appium.java_client.MobileElement;
 
 
 public class addIncomeHomePageObject {
-	
-	
+
+	public static final String ANSI_RED = "\u001B[31m";
+	public static final String ANSI_RESET = "\u001B[0m";
 	AppiumDriver<MobileElement> driver;
 	Double inicialIncomeValue;
 	Double incomeEnterValue;
@@ -20,7 +21,8 @@ public class addIncomeHomePageObject {
 	public void openAppium() {
 		
 		driver = appiumResources.connectionAppium();
-		
+		System.out.println("**********SCENARIO: Add incomes HAS BEEN STARTED**********");
+		System.out.println(ANSI_RED + "Texto de color rojo" + ANSI_RESET);
 	}
 	
 
@@ -30,7 +32,7 @@ public class addIncomeHomePageObject {
 		String inicialIncome;
 		
 		Assert.assertTrue(driver.findElementById("com.monefy.app.lite:id/income_amount_text").isDisplayed());
-
+		System.out.println("Home validated");
 		inicialIncome = driver.findElementById("com.monefy.app.lite:id/income_amount_text").getText();
 		inicialIncome = inicialIncome.replaceAll("[^\\d.]", "");
 
@@ -46,25 +48,26 @@ public class addIncomeHomePageObject {
 			catch(Exception e) {
 				driver.findElementById("com.monefy.app.lite:id/income_button_title").click();
 			}
-		
+		System.out.println("Income button has been selected");
 
 	}
 
 	public void enterIncomeValue() {
 		
-		driver.findElementById("com.monefy.app.lite:id/buttonKeyboard1").click();
-		for (int i = 0; i < 4; ++i) {
-			driver.findElementById("com.monefy.app.lite:id/buttonKeyboard0").click();
+		for (int i = 0; i < 6; ++i) {
+			int valueCalculatorButton = (int) (Math.random() * (9));
+			driver.findElementById("com.monefy.app.lite:id/buttonKeyboard"+valueCalculatorButton).click();	
 			}
-		
 		String enterIncome = driver.findElementById("com.monefy.app.lite:id/amount_text").getText();
 		incomeEnterValue = Double.parseDouble(enterIncome);
+		System.out.println("Income Value has been writed");
 
 	}
 	
 	public void chooseCategory() {
 		driver.findElementById("com.monefy.app.lite:id/keyboard_action_button").click();
 		driver.findElementById("com.monefy.app.lite:id/imageView").click();
+		System.out.println("Category has been selected");
 	}
 	
 	public void validateIncomesLabel() {
@@ -78,7 +81,7 @@ public class addIncomeHomePageObject {
 		finalIncomeValue = Double.parseDouble(finalIncome);
 		
 		Assert.assertEquals("The income doesn't match \r\n Test have been failed",finalIncomeValue, expectedIncomeValue);
-		
+		System.out.println("Income value has been validated SUCCESFULLY");
 		driver.quit();
 	}
 }

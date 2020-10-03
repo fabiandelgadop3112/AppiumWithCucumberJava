@@ -20,6 +20,8 @@ public class addIndividualExpensesPageObject {
 	public void validateHome() {
 
 		Assert.assertTrue(driver.findElementById("com.monefy.app.lite:id/income_amount_text").isDisplayed());
+		System.out.println("Home validated");
+		
 		driver.findElementById("com.monefy.app.lite:id/overflow").click();
 		driver.findElementById("com.monefy.app.lite:id/settings_panel").click();
 		try {
@@ -31,6 +33,7 @@ public class addIndividualExpensesPageObject {
 		appiumResources.swipe(769,2080,775,256);
 		driver.findElementById("com.monefy.app.lite:id/clear_database_button").click();		
 		driver.findElementById("android:id/button1").click();
+		System.out.println("Data base has been cleanned succesfully");
 	}
 
 	public void addAllExpenses() {
@@ -43,8 +46,13 @@ public class addIndividualExpensesPageObject {
 			
 			if (initialValue.equals(driver.findElementByXPath("//androidx.viewpager.widget.ViewPager/android.widget.LinearLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.TextView["+i+"]").getText())) {
 				driver.findElementByXPath("//android.widget.ImageView["+i+"]").click();
-				driver.findElementById("com.monefy.app.lite:id/buttonKeyboard1").click();
+				for (int j = 0; j < 6; ++j) {
+					int valueCalculatorButton = (int) (Math.random() * (9));
+					driver.findElementById("com.monefy.app.lite:id/buttonKeyboard"+valueCalculatorButton).click();	
+					}
+				String expenseName = driver.findElementById("com.monefy.app.lite:id/keyboard_action_button").getText();
 				driver.findElementById("com.monefy.app.lite:id/keyboard_action_button").click();
+				System.out.println(expenseName+" has been added Succesfully");
 				break;
 			}
 			else
@@ -54,12 +62,8 @@ public class addIndividualExpensesPageObject {
 			}
 		}
 		}
-		try {
-			Thread.sleep(20000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+		System.out.println("All individual expenses has been created SUCCESFULLY");
 		driver.quit();
 		
 	}

@@ -6,7 +6,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions (features = "src/features/home.feature", tags="@Alltestcases") 
+@CucumberOptions (features = "src/features/home.feature", tags="@Addincomes") 
 public class runnerTestAddIncome 
 {
 	

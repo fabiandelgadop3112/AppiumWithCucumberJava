@@ -16,23 +16,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
-
-<repositories>
-		<repository>
-			<id>serenity</id>
-			<name>bintray</name>
-			<url>http://dl.bintray.com/serenity/maven</url>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>serenity</id>
-			<name>bintray-plugins</name>
-			<url>http://dl.bintray.com/serenity/maven</url>
-		</pluginRepository>
-	</pluginRepositories>
-
-
+    
     <dependencies>
         <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
        <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
@@ -87,6 +71,4 @@
             <scope>test</scope>
         </dependency>	
     </dependencies>
-    
-    
 </project>

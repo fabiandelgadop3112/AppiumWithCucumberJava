@@ -1,4 +1,4 @@
-# AUTOMATION OF AN ANDROID APP WITH APPIUM STARTING ABOUT A DIFINITED TEST CASES 
+# AUTOMATION OF AN ANDROID APP WITH APPIUM STARTING ABOUT A DEFINED TEST CASES 
 
 The actual automation tool, executes some test cases for an Android app. This app was built to control personal finances and allows to the user adds his expenses or his incomes.
 

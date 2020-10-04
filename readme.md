@@ -113,7 +113,7 @@ If you want to use eclipse to validate the process you should have the next requ
 
 These requisites can be installed from Eclipse from the “Eclipse Market Place”
 
-#HERE GOES IMAGES 1 AND 2
+<p align="center"><img width="400" alt="gesture sample" src="https://user-images.githubusercontent.com/55062262/95024596-a8d76600-0649-11eb-8307-f4bf5f0ccf36.png"></p>
 
 Once you have installed the plugins in eclipse, you should restart it.
 

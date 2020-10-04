@@ -206,9 +206,23 @@ On this way, you can run the project using your Android device.
 
 ### **EXECUTION PROCESS**
 
+Clone the repository to a local path
+
+On eclipse impor the project as a maven project.
+
+<p align="center"><img width="400" alt="gesture sample" src="https://user-images.githubusercontent.com/55062262/95025397-15a12f00-064f-11eb-867a-b6693659dcd6.png"></p>
+
+Select yout local path.
+
+<p align="center"><img width="400" alt="gesture sample" src="https://user-images.githubusercontent.com/55062262/95025398-1639c580-064f-11eb-9a79-5c21203d6e8c.png"></p>
+
 Run the tests, running the Alltestcases.java class as a Junit test, if you are using eclipse you can execute tests on this way:
 
 <p align="center"><img width="400" alt="gesture sample" src="https://user-images.githubusercontent.com/55062262/95022739-baffd700-063e-11eb-8fc2-0035aebc8176.png"></p>
+
+If eclips ask you what launcher do you want to execute the test, you could select _Eclipse Junit Lancher_
+
+<p align="center"><img width="400" alt="gesture sample" src="https://user-images.githubusercontent.com/55062262/95025399-16d25c00-064f-11eb-8c32-a085082ef9ac.png"></p>
 
 ***Note:*** _If you want execute only one thest cases, you must change the tag in the Alltestcases.java class accord to tags of the feture file_ 
 

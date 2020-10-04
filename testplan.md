@@ -1,4 +1,4 @@
-# TEST PLAN AND TEST PROCESS MONEFY APP ANDROID:
+# TEST PLAN AND TEST PROCESS MONEFY APP ANDROID
 
 About the general goal of the app and taking some exploratory test charters, the next goals or test cases have been proposed to take a good coverage.
 

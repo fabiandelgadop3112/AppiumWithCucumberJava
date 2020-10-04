@@ -8,7 +8,6 @@
 	<description>This suite contains automated cases for high priorite test cases on Monefy app</description>
 	<!-- Lista de propiedades -->
 	<properties>
-		<skipTests>true</skipTests>
 		<serenity.maven.version>1.9.30</serenity.maven.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -30,8 +29,6 @@
 		</pluginRepository>
 	</pluginRepositories>
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
-		<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
 		<dependency>
 			<groupId>io.appium</groupId>
 			<artifactId>java-client</artifactId>
@@ -90,7 +87,8 @@
 				<version>2.20</version>
 				<configuration>
 					<includes>
-						<include>/testSuiteMonefy/src/test/java/com/testSuiteMonefy/runnerAddIncomeTest.java</include>
+						<testSourceDirectory>/testSuiteMonefy/src/test/java/com/testSuiteMonefy</testSourceDirectory>
+						<include>**/*runnerAddIncomeTest.java</include>
 					</includes>
 				</configuration>
 			</plugin>

@@ -165,7 +165,9 @@ And it shows the actual version of SDK
     
 ***Note:*** _The reference that the named paths only are a reference, verify your local paths of each named prerequisites._
     
-AQUI VAN IMAGENES 3 Y 4
+<p align="center"><img width="400" alt="gesture sample" src="https://user-images.githubusercontent.com/55062262/95022737-ba674080-063e-11eb-9d88-7c9e505afb05.png"></p>
+
+<p align="center"><img width="400" alt="gesture sample" src="https://user-images.githubusercontent.com/55062262/95022736-b9ceaa00-063e-11eb-8767-ec9ab5a677b4.png"></p>
 
 ## ***Preparing the environment and device***
 
@@ -196,8 +198,27 @@ An it shows the udid of your device
 ## **Configure device information on the project to run the process**
 
 
-In the root path of the project “testSuiteMonefy”, edit file “project.properties” an add the information device finded in the previos step:
+In the root path of the project “testSuiteMonefy”, edit file “project.properties” an add the information device finded in the previous step:
+
+<p align="center"><img width="400" alt="gesture sample" src="https://user-images.githubusercontent.com/55062262/95022738-ba674080-063e-11eb-827e-56c9abc3730f.png"></p>
 
 On this way, you can run the project using your Android device.
 
 ### **EXECUTION PROCESS**
+
+Run the tests, running the Alltestcases.java class as a Junit test, if you are using eclipse you can execute tests on this way:
+
+<p align="center"><img width="400" alt="gesture sample" src="https://user-images.githubusercontent.com/55062262/95022739-baffd700-063e-11eb-8fc2-0035aebc8176.png"></p>
+
+***Note:*** _If you want execute only one thest cases, you must change the tag in the Alltestcases.java class accord to tags of the feture file_ 
+
+
+<p align="center"><img width="400" alt="gesture sample" src="https://user-images.githubusercontent.com/55062262/95023061-842ac080-0640-11eb-8cb1-038acd611a15.png"></p>
+
+
+And .... enjoy the test cases running.
+
+<p align="center"><img width="400" alt="gesture sample" src="https://user-images.githubusercontent.com/55062262/95024484-dec81a80-0648-11eb-9f0f-55bcf8c3b6c8.gif"></p>
+
+
+

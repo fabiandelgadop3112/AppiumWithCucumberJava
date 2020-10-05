@@ -61,7 +61,7 @@ With a class runner, we reference the feature file, we can change the tag if we 
 
 The feature file communicates with class or classes “definition” through “regexp”. Once the class is invoked, the communication with the logic or script process (PageObject class) is realized through class step (So the steps classes are the bridge between the definition classes and page object classes).
 
-A necessary class was created to make the connection to Appium and to the device: “AppiumResources.java”, also this class have a method to simulate a swipe in the app.
+A necessary class was created to make the connection to Appium and to the device, configure capabilities amd run appium server: “AppiumResources.java”, also this class have a method to simulate a swipe in the app.
 
 The next flow was built to validate the high-level test cases on the automation:
 
@@ -205,6 +205,8 @@ In the root path of the project “testSuiteMonefy”, edit file “project.prop
 <p align="center"><img width="400" alt="gesture sample" src="https://user-images.githubusercontent.com/55062262/95022738-ba674080-063e-11eb-827e-56c9abc3730f.png"></p>
 
 On this way, you can run the project using your Android device.
+
+Ensure that appium is running in ip 0.0.0.0 and port 4723
 
 ### **EXECUTION PROCESS**
 

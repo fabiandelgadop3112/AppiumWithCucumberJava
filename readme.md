@@ -228,7 +228,7 @@ If eclips ask you what launcher do you want to execute the test, you could selec
 
 <p align="center"><img width="400" alt="gesture sample" src="https://user-images.githubusercontent.com/55062262/95025399-16d25c00-064f-11eb-8c32-a085082ef9ac.png"></p>
 
-***Note:*** _If you want execute only one thest cases, you must change the tag in the Alltestcases.java class accord to tags of the feture file_ 
+***Note:*** _If you to want execute only one test case, you must change the tag in the Alltestcases.java class accord to tags of the feature file_ 
 
 
 <p align="center"><img width="400" alt="gesture sample" src="https://user-images.githubusercontent.com/55062262/95023061-842ac080-0640-11eb-8cb1-038acd611a15.png"></p>
